@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="connexion.css">
+    </head>
+    <body>
+    <div id="container">
+    <div id="ConnectionDiv">
+    <form action="connexion.php" method="post" enctype="multipart/form-data">
+        <h2 id="Connexion">Connexion</h2>
+        <br>
+        <label for="Nom">Nom d'utilisateur :</label><br>
+        <input type="text" name="Nom" required><br><br>
+        <label for="Mot-De-Passe">Mot de passe :</label><br>
+        <input type="text" name="Mot-De-Passe" required><br><br>
+        <label for="Role">Role :</label>
+        <select id="Role" name="Role">
+            <option value="Directeur">Directeur</option>
+            <option value="Secretaire">Secretaire</option>
+            <option value="ChefDeDevision">Chef d'une division</option>
+            <option value="ChefDeService">Chef de service</option>
+        </select>
+        <br>
+        <button type="submit" id="Valider">Valider</button>
+    </form>
+    </div>
+    </div>
+    </body>
+</html>

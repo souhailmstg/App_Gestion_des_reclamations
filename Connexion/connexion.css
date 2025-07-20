@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    background-color: #044B5B;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#ConnectionDiv{
+    box-shadow: 0 0 20px black; 
+    box-sizing: border-box;
+    background-color: #D3E9E9;
+    width: 488px;
+    height: 550px;
+    border-radius: 30px;
+}
+#Connexion{
+    font-size: 30px;
+    margin-top: 30px;
+    text-align: center;
+    color: #988b8b;
+}
+label{
+    color: #000000;
+    font-style:normal;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-top: 90px;
+}
+#Role{
+color: #988b8b;
+border: none;
+width: 220px;
+height: 40px;
+border-radius: 10px;
+margin-left: 45px;
+margin-top: 30px;
+box-shadow: 0 0 5px ;
+outline: none;
+}
+input{
+    box-shadow: 0 0 5px;
+    border: none;
+    width: 290px;
+    height: 38px;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 10px;
+    outline: none;
+    font-size:large;
+    padding-left: 30px;
+    color: #988b8b;
+}
+#Valider{
+    margin-top: 100px;
+    margin-left: 270px;
+    background-color: #044B5B;
+    color: azure;
+    width: 120px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+#Valider:hover{
+    box-shadow: 0 0 8px;
+    transform: scale(1.05);
+    transition: 0.3s ease;
+    background-color: #070724;
+}
