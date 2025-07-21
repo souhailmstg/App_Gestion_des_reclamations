@@ -1,6 +1,6 @@
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     
 }
 .container-fluid{
@@ -9,7 +9,7 @@
  width: 100%;
  color:aliceblue;
  height: 100vh;
- 
+ margin: 0;
 }
 #UpDiv{
 background-color: #044B5B;
@@ -31,23 +31,21 @@ background-color: #044B5B;
     height: 141px; 
 }
 
-.the-MiddleDiv{
+.col-md-3{
     box-sizing: border-box;
-    width: 1440px;
-    height: 250px;
-    background-color: #F3ECEC;
     color: black;
 }
-#BottomDiv h4{
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-bottom: 60px;
-    color: #0A208C;
+#BottomDiv{
+    margin-top: 60px;
+    /* margin-right: 0px;
+    width: 100%; */
+    height: 250px;
+    background-color: #F3ECEC;
 }
 .FormContainer{
     padding: 10px;
     margin-top: 30px;
-    background-color: #ffffff;
+    background-color: #D3E9E9;
     color: black;
     margin-left: 50px;
     width: 130px;
@@ -75,23 +73,16 @@ span{
 #header-title{
     margin-top: 25px;
 }
-#btn-fr{
-    margin-top: 10px;
-    margin-left: 30px;
-    float: left;
-    padding: 5px;
-    border-radius: 10px;
-    background-color: #044B5B;
-    color: white;
-    width: 90px;
+
+#title-page{
+     margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 60px;
+    color: #0A208C;
 }
-#btn-ar{
-    margin-top: 10px;
-    margin-right: 30px;
-    float: right;
-    padding: 5px;
-    border-radius: 10px;
-    background-color: #044B5B;
-    color: white;
-    width: 90px;
+#Table-span{
+    margin-left: 65px;
+}
+#form-span{
+    margin-left: 40px;
 }

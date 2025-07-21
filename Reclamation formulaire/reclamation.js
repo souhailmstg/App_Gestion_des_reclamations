@@ -86,7 +86,8 @@ function gererChamp() {
     // Gestion fichier sélectionné
     window.addEventListener("DOMContentLoaded", function () {
       // Changement type client
-       switchLanguage("fr");
+        const lang = localStorage.getItem("lang") || "fr";
+        switchLanguage(lang);
       document.getElementById("Type").addEventListener("change", gererChamp);
       gererChamp(); // au chargement
 

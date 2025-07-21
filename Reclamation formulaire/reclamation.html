@@ -1,5 +1,6 @@
 <html>
 <head>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="reclamation.css">
 
 </head>
@@ -26,7 +27,7 @@
   <input type="text" name="nom_client" required>
   <br>
   <label id="user_type">Type :</label>
-  <select id="Type">
+  <select id="Type" name="Type">
     <option value="Entreprise" id="opt-entreprise">Entreprise</option>
     <option value="Particulier" id="opt-particulier" selected>Particulier</option>
   </select>
@@ -60,7 +61,7 @@
 
   <label id="label-file">Pièce jointe (optionnelle) :</label>
   <div class="file-upload">
-  <input type="file" id="fileInput" class="hidden-file">
+  <input type="file" id="fileInput" name="fichier" class="hidden-file">
   <label for="fileInput" id="browse-span" class="custom-file-button">📎 Parcourir un fichier</label>
   <span id="fileName">Aucun fichier sélectionné</span>
 </div>
