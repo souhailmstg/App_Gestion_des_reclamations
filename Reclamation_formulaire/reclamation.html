@@ -1,0 +1,82 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="reclamation.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!--Ajouter Coix de langue-->
+  
+<div class="container-fluid">
+<div id="UpDiv" class="row">
+  <div class="col-md-12">
+    <h2 id="header-title">Agence du Bassin Hydraulique de l'Oum Er Rbia</h2>
+  </div>
+</div>  
+<div class="row">
+  <div id="successMessage" style="display: none;"  class="text-center mt-5">
+  <!-- Contenu injecté par JavaScript -->
+</div>
+<div id="FormContainer">
+  <!--Ajouter Coix de langue-->
+  <div class="lang-buttons">
+    <button id="btn-fr" onclick="switchLanguage('fr')">Français</button>
+    <button id="btn-ar" onclick="switchLanguage('ar')">العربية</button>
+  </div>
+   <input type="hidden" id="langInput" name="lang" value="fr">
+<form id="reclamationForm" action="reclamation.php" method="POST" enctype="multipart/form-data">
+  <h2 id="form-title">Formulaire de réclamation</h2>
+  <label for="nom_client" id="label-nom">Nom Complet :</label>
+  <br>
+  <input type="text" name="nom_client" required>
+  <br>
+  <label id="user_type">Type :</label>
+  <select id="Type" name="Type">
+    <option value="Entreprise" id="opt-entreprise">Entreprise</option>
+    <option value="Particulier" id="opt-particulier" selected>Particulier</option>
+  </select>
+   
+  <div id="ChampCIN">
+    <br>
+  <label for="CIN" id="label-cin">CIN :</label>
+  <br>
+  <input name="CIN" type="text" required>
+  </div>
+  <div id="ChampICE">
+  <label for="ICE" id="label-ice">ICE :</label>
+  <input name="ICE" type="text">
+  </div>
+  <br>
+  <label for="adress" id="label-adress">Adress :</label>
+  <br>
+  <input type="text" name="adress">
+  <br><br>
+  <label for="num-tel" id="label-tel">Téléphone :</label>
+  <br>
+  <input type="tel" name="num-tel"  required><br>
+  <label for="mail" id="label-mail">Mail :</label>
+  <br>
+  <input type="mail" name="mail" id="mailInput"><br><br>
+  
+
+  <label for="description" id="label-desc">Description :</label>
+  <br>
+  <textarea name="description" required></textarea><br><br>
+
+  <label id="label-file">Pièce jointe (optionnelle) :</label>
+  <div class="file-upload">
+  <input type="file" id="fileInput" name="fichier" class="hidden-file">
+  <label for="fileInput" id="browse-span" class="custom-file-button">📎 Parcourir un fichier</label>
+  <span id="fileName">Aucun fichier sélectionné</span>
+</div>
+  <br>
+  <button type="submit" id="btn-submit">Envoyer</button>
+  
+</form>
+</div>
+</div>
+</div>
+<script src="reclamation.js"></script>
+</body>
+</html>
