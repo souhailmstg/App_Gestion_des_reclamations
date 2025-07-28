@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -29,9 +30,9 @@
   <h2 id="form-title">Formulaire de réclamation</h2>
   <label for="nom_client" id="label-nom">Nom Complet :</label>
   <br>
-  <input type="text" name="nom_client" required>
+  <input type="text" id="nom_client" name="nom_client" required>
   <br>
-  <label id="user_type">Type :</label>
+  <label for="Type" id="user_type">Type :</label>
   <select id="Type" name="Type">
     <option value="Entreprise" id="opt-entreprise">Entreprise</option>
     <option value="Particulier" id="opt-particulier" selected>Particulier</option>
@@ -41,29 +42,33 @@
     <br>
   <label for="CIN" id="label-cin">CIN :</label>
   <br>
-  <input name="CIN" type="text" required>
+  <input name="CIN" id="CIN" type="text" required>
   </div>
   <div id="ChampICE">
   <label for="ICE" id="label-ice">ICE :</label>
-  <input name="ICE" type="text">
+  <input name="ICE" id="ICE" type="text">
   </div>
   <br>
   <label for="adress" id="label-adress">Adress :</label>
   <br>
-  <input type="text" name="adress">
+  <input type="text" id="adress" name="adress">
   <br><br>
   <label for="num-tel" id="label-tel">Téléphone :</label>
   <br>
-  <input type="tel" name="num-tel"  required><br>
-  <label for="mail" id="label-mail">Mail :</label>
+  <input type="tel" id="num-tel" name="num-tel"  required><br>
+  <label for="mailInput" id="label-mail">Mail :</label>
   <br>
   <input type="mail" name="mail" id="mailInput"><br><br>
-  
-
-  <label for="description" id="label-desc">Description :</label>
+  <label for="descriptionInput" id="label-desc">Description :</label>
   <br>
-  <textarea name="description" required></textarea><br><br>
-
+  <textarea name="description" id="descriptionInput" required></textarea><br><br>
+  <br>
+  <label for="ville-field" id="city-label">Ville de la réclamation :</label>
+  <input id="ville-field" type="text" name="ville" autocomplete="address-level2">
+  <br><br>
+  <label for="region-field" id="region-label">Région de la réclamation :</label>
+  <input id="region-field" type="text" name="region" autocomplete="address-level2">
+  <br><br>
   <label id="label-file">Pièce jointe (optionnelle) :</label>
   <div class="file-upload">
   <input type="file" id="fileInput" name="fichier" class="hidden-file">

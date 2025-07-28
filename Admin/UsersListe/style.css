@@ -1,0 +1,260 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #d5eaea;
+}
+
+header {
+  background-color: #06505C;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user a {
+  color: white;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+main {
+  padding: 30px;
+}
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title-bar h2 {
+  color: #001A86;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-add {
+  background-color: white;
+  padding: 5px;
+  border: none;
+  text-decoration: none;
+  color: #00A6C2;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  height: 25px;
+}
+
+.search-input {
+  padding: 6px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #f4f7fb;
+  text-align: left;
+}
+
+th, td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.icon {
+  width: 30px;
+  margin-right: 50px;
+  margin-left: 20px;
+}
+.searchDiv{
+    background-color: #ffff;
+    border-radius: 10px;
+    padding: 5px;
+    border: none;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+/* Fenêtre modale - fond */
+.modal {
+  display: none; /* cachée par défaut */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4); /* fond semi-transparent */
+}
+
+/* Contenu modale */
+.modal-content {
+  background-color: #d1e7e7;
+  margin: 10% auto;
+  border-radius: 20px;
+  width: 350px;
+  height: 400px;
+  position: relative;
+}
+
+/* Bouton fermeture */
+.close-btn {
+  /* position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 20px; */
+  cursor: pointer;
+  width: 30px;
+}
+#AnnulerIcon{
+    width: 40px;
+    margin-left: 310px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px #001A86;;
+}
+/* Style des inputs */
+.modal-content input {
+  box-shadow: 0 0 5px;
+    display: block;
+    border: none;
+    width: 200px;
+    height: 38px;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    outline: none;
+    font-size:large;
+    padding-left: 30px;
+    color: #988b8b;
+}
+.modal-content select{
+  color: #988b8b;
+border: none;
+width: 220px;
+height: 40px;
+border-radius: 10px;
+margin-left: 45px;
+margin-top: 15px;
+box-shadow: 0 0 5px ;
+outline: none;
+}
+/* Bouton enregistrer */
+.modal-content button {
+ margin-top: 60px;
+    margin-left: 200px;
+    background-color: #044B5B;
+    color: azure;
+    width: 120px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+.modal-content button:hover{
+ box-shadow: 0 0 8px;
+    transform: scale(1.05);
+    transition: 0.3s ease;
+    background-color: #070724; 
+}
+label{
+    color: #494646;
+    font-style:normal;
+    font-size: 15px;
+    margin-left: 50px;
+    margin-top: 90px;
+}
+/* Modale suppression */
+.delete-modal-content {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  height: 200px;
+  text-align: left;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10% auto; /* centrer verticalement et horizontalement */
+  position: relative;
+}
+
+.delete-warning {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 20px;
+  /* plus besoin de margin-right si tu veux tout à gauche */
+  margin-right: 0;
+}
+
+.delete-buttons {
+  display: flex;
+  justify-content: center; /* aligne boutons à gauche */
+  gap: 10px;
+}
+
+.btn-cancel, .btn-delete {
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+}
+
+.btn-cancel {
+  background-color: #ccc;
+  color: black;
+  
+}
+
+.btn-delete {
+  background-color: red;
+  color: white;
+  margin-right: 0; /* pas de marge à droite */
+  box-shadow: #044B5B;
+}

@@ -32,6 +32,6 @@ const translations = {
 
 // Appliquer la langue par défaut (français)
 document.addEventListener("DOMContentLoaded", () => {
-  switchLanguage("fr");
+        switchLanguage("fr");
 });
       

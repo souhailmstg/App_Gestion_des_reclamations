@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Connexion à la base de données
 $pdo = new PDO("mysql:host=localhost;dbname=abhoer;charset=utf8", "root", "");
 
@@ -17,13 +18,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ]);
 
     $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
-
     if ($utilisateur && password_verify($motDePasse,$utilisateur['mot_de_passe'])) {
         echo "<h2>Connexion réussie</h2>";
-        echo "<p>Bienvenue $nom ($role)</p>";
+        
+        switch ($role) {
+            case 'admin':
+                header("Location: ../Admin/Admin.html");
+                break;
+            
+            default :    
+            
+            $_SESSION['nom'] = $utilisateur['nom'];
+            $_SESSION['role'] = $utilisateur['role'];
+            header('Location: ../Utilisateurs/acceuil.php');
+            break;
+        }
+        exit;
     } else {
-        echo "<p style='color:red;'>Nom d'utilisateur, mot de passe ou rôle incorrect.</p>";
+        echo "<p style='color:red;'>Nom, mot de passe ou rôle incorrect.</p>";
     }
-    
 }
 ?>

@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 header('Content-Type: application/json');
 
 // Récupérer la langue (non nécessaire ici car on renvoie un code seulement)
@@ -6,8 +9,10 @@ $lang = $_POST['lang'] ?? 'fr';
 $lang = in_array($lang, ['fr', 'ar']) ? $lang : 'fr';
 
 try {
-    $pdo = new PDO("mysql:host=localhost;dbname=abhoer", "root", "", [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    $pdo = new PDO("mysql:host=localhost;dbname=abhoer;charset=utf8mb4", "root", "", [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES => false
     ]);
 
     // Récupération
@@ -19,6 +24,8 @@ try {
     $CIN = htmlspecialchars(trim($_POST['CIN'] ?? ''));
     $ICE = htmlspecialchars(trim($_POST['ICE'] ?? ''));
     $description = htmlspecialchars(trim($_POST['description'] ?? ''));
+    $ville =htmlspecialchars(trim($_POST['ville'] ?? ''));
+    $region = htmlspecialchars(trim($_POST['region'] ?? ''));
 
     // Erreurs retournées par code
     if (empty($nom)) throw new Exception("nom_obligatoire");
@@ -29,9 +36,9 @@ try {
         throw new Exception("mail_invalide");
     }
 
-    if ($num_tel !== '' && !preg_match('/^[1-9]\d{7,14}$/', $num_tel)) {
-        throw new Exception("tel_invalide");
-    }
+    //  if ($num_tel == '' || !preg_match('/^[1-9]\d{7,14}$/', $num_tel)) {
+    //      throw new Exception("tel_invalide");
+    // }
     //traitement du fichier
     $fichier_joint = null;
     if (isset($_FILES['fichier']) && $_FILES['fichier']['error'] === 0) {
@@ -62,13 +69,21 @@ try {
     }
 
     // Insertion en base
-    $sql = "INSERT INTO reclamation (nom_client, adress, user_type, CIN, ICE, telephone_client, email_client, description, piece_jointe)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO reclamation (nom_client, adress, `Type`, CIN, ICE, tel, mail, description, ville, region, fichier) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$nom, $adress, $type_user, $CIN, $ICE, $num_tel, $mail, $description, $fichier_joint]);
+    $stmt->execute([$nom, $adress, $type_user, $CIN, $ICE, $num_tel, $mail, $description, $ville, $region, $fichier_joint]);
 
     echo json_encode(['status' => 'success']);
-    } catch (Exception $e) {
-        echo json_encode(['status' => 'error', 'code' => $e->getMessage()]);
     }
+    
+    catch (PDOException $e) {
+    error_log("PDO Error: " . $e->getMessage() . "\nTrace: " . $e->getTraceAsString(), 3, 'errors.log');
+    http_response_code(500);
+    echo json_encode(['status' => 'error', 'code' => 'database_error']);
+} catch (Exception $e) {
+    error_log("Error: " . $e->getMessage() . "\nTrace: " . $e->getTraceAsString(), 3, 'errors.log');
+    http_response_code(400);
+    echo json_encode(['status' => 'error', 'code' => $e->getMessage()]);
+}
 ?>
