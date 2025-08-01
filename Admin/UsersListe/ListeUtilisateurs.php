@@ -40,7 +40,7 @@
       <tbody>
         <?php
         // Connexion à la base de données
-        $conn = new mysqli("localhost", "root", "", "abhoer");
+        $conn = new mysqli("localhost", "root", "", "abhoer_");
         if ($conn->connect_error) {
             die("Échec de la connexion : " . $conn->connect_error);
         }
@@ -65,12 +65,6 @@
                   <a href="#"><img src="img/image copy.png" class="icon" onclick="openModal(' . $id . ', ' . $nom . ', ' . $mot_de_passe . ', ' . $role . ')"></a>
                   <a href="#"><img src="img/image copy 2.png" class="icon" onclick="deleteUser(' . $id . ')"></a>
                 </td>';
-
-                // echo '<td>
-                // <a href="#"><img src="img/image copy.png" class="icon" onclick="openModal(\'' . $row['id_utilisateur'] . '\', \'' . htmlspecialchars($row['nom'], ENT_QUOTES) . '\', \'' . htmlspecialchars($row['mot_de_passe'], ENT_QUOTES) . '\', \'' . htmlspecialchars($row['role'], ENT_QUOTES) . '\')"></a>
-                // <a href="#"><img src="img/image copy 2.png" class="icon"></a>
-                // </td>';
-
                 echo "</tr>";
             }
         } else {

@@ -2,7 +2,7 @@
 // Connexion à la base de données (à adapter avec tes identifiants)
 echo "Test réussi";
 $host = 'localhost';
-$dbname = 'abhoer';
+$dbname = 'abhoer_';
 $username = 'root';
 $password = '';
 

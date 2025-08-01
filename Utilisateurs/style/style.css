@@ -232,3 +232,47 @@ tr:hover {
     background-color: aliceblue;
     border-radius: 60px;
 }
+#orientationDiv{
+    background-color: #eff2f0;
+    color: black;
+    display: none; 
+    position: fixed; 
+    top: 20%; 
+    left: 35%; 
+    padding: 20px;
+    z-index: 999;
+    border: 1px solid bisque;
+    box-shadow: 0 0 8px white;
+}
+#serviceResponsable{
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+}
+.btn.btn-secondary{
+    background-color: #004d5c;
+    padding: 4px;
+    color: #fff;
+    border-radius: 5px;
+    margin-left: 10px;
+    width: 100px;
+    cursor: pointer;
+}
+.btn.btn-success{
+    background-color: #004d5c;
+    padding: 4px;
+    color: #fff;
+    border-radius: 5px;
+    width: 100px;
+    cursor: pointer;
+}
+.btn.btn-danger{
+    background-color: #f80a0a !important;
+    padding: 4px;
+    color: #fff;
+    border-radius: 5px;
+    width: 200px;
+    cursor: pointer;
+}

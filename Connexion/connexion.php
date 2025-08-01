@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Connexion à la base de données
-$pdo = new PDO("mysql:host=localhost;dbname=abhoer;charset=utf8", "root", "");
+$pdo = new PDO("mysql:host=localhost;dbname=abhoer_;charset=utf8", "root", "");
 
 // Vérification du formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

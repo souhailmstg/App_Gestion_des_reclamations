@@ -4,14 +4,25 @@ function gererChamp() {
   const type = document.getElementById('Type').value;
   const ChampCIN = document.getElementById('ChampCIN');
   const ChampICE = document.getElementById('ChampICE');
+  const inputCIN = document.getElementById('CIN');
+
   if (type === "Entreprise") {
     ChampICE.style.display = 'block';
     ChampCIN.style.display = 'none';
+    inputCIN.removeAttribute('required');
   } else {
     ChampICE.style.display = 'none';
     ChampCIN.style.display = 'block';
+    inputCIN.setAttribute('required', 'required');
   }
 }
+
+// Bien attendre le chargement du DOM :
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("Type").addEventListener("change", gererChamp);
+  gererChamp();
+});
+
 
 // Traductions
 const translations = {
@@ -27,6 +38,7 @@ const translations = {
     tel: "Téléphone :",
     mail: "Mail :",
     desc: "Description :",
+    commune: "Commune de la réclamation :",
     city: "Ville de la réclamation :",
     region: "Région de la réclamation :",
     file: "Pièce jointe (optionnelle) :",
@@ -66,6 +78,7 @@ const translations = {
     fileNone: "لم يتم اختيار أي ملف",
     entreprise: "مقاولة",
     particulier: "فرد",
+    commune: "جماعة الشكاية :",
     city: "مدينة الشكاية :",
     region: "جهة الشكاية :",
     browse: "📎 اختيار ملف",
@@ -111,7 +124,8 @@ function switchLanguage(lang) {
   document.getElementById("browse-span").textContent = t.browse;
   document.getElementById("city-label").textContent = t.city;
   document.getElementById("region-label").textContent = t.region;
-
+  document.getElementById("commune-label").textContent = t.commune;
+  
   if (lang === "fr") {
     document.getElementById("btn-fr").style.display = "none";
     document.getElementById("btn-ar").style.display = "inline-block";
@@ -197,44 +211,7 @@ async function geocodeDescription() {
   }
 }
 
-// 
-// async function geocodeDescription() {
-//   const descriptionInput = document.getElementById('descriptionInput').value;
-//   const lang = document.documentElement.lang || 'fr';
-//   const t = translations[lang];
 
-//   if (!descriptionInput) {
-//     document.getElementById('ville-field').value = '';
-//     document.getElementById('region-field').value = '';
-//     return { city: '', region: '' };
-//   }
-
-//   try {
-//     const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(descriptionInput)}&key=${apiKey}&language=${lang}&countrycode=MA`;
-//     const response = await fetch(url);
-//     const data = await response.json();
-
-//     if (data.results && data.results.length > 0) {
-//       const result = data.results[0];
-//       const city = result.components.city || result.components.town || result.components.village || '';
-//       const region = result.components.state || result.components.region || '';
-//       document.getElementById('ville-field').value = city;
-//       document.getElementById('region-field').value = region;
-//       return { city, region };
-//     } else {
-//       document.getElementById('ville-field').value = '';
-//       document.getElementById('region-field').value = '';
-//       console.log('❌: ' + t.errors.geocode_failed);
-//       return { city: '', region: '' };
-//     }
-//   } catch (error) {
-//     console.error('Erreur API OpenCage :', error);
-//     document.getElementById('ville-field').value = '';
-//     document.getElementById('region-field').value = '';
-//     console.log('❌: ' + t.errors.geocode_failed);
-//     return { city: '', region: '' };
-//   }
-// }
 
 // Gestion des événements
 document.addEventListener("DOMContentLoaded", function () {
@@ -315,3 +292,4 @@ function debounce(func, wait) {
     timeout = setTimeout(() => func.apply(this, args), wait);
   };
 }
+
